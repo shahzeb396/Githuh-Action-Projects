@@ -1,0 +1,21 @@
+name: Multiple Job Practical
+
+on: [push]
+
+jobs: 
+ build:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Checkout
+     uses: actions/checkout@v5.0.0
+   - name: Build
+     run: echo "Build Application......."
+ test:
+  runs-on: ubuntu-latest
+  needs: build
+  steps:
+   - name: Checkout
+     uses: actions/checkout@v5.0.0
+   - name: run test
+     run: echo "Application is testing......."
+     
